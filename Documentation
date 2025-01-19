@@ -1,0 +1,117 @@
+FemLibrary Documentation
+
+Overview
+This library is designed for creating feature-rich and customizable graphical user interfaces (GUIs) in Roblox. It includes a variety of UI elements like buttons, sliders, toggles, dropdowns, text input fields, color pickers, and more. Each element is highly configurable and supports callbacks for real-time interactivity.
+
+Initialization
+
+library:Init()
+Initializes the library and creates the base UI.
+
+Example:
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/bestuserpc/FemLib/refs/heads/main/source.lua"))()
+library:Init()
+
+Tabs and Sections
+
+Creates a new tab in the interface.
+
+title (string): The name of the tab.
+position (number): The position of the tab (optional).
+
+Example:
+local mainTab = library:AddTab("Main Tab")
+
+Creates a section within a tab.
+
+title (string): The name of the section.
+
+Example:
+local section = mainTab:AddSection("Settings")
+
+UI Elements
+
+Adds a label (text display).
+
+text (string): The text for the label.
+
+Example:
+section:AddLabel("Welcome to the GUI!")
+
+Adds a toggle switch.
+
+Example:
+section:AddToggle({
+    text = "Enable Feature",
+    state = false,
+    callback = function(state)
+        print("Toggle state:", state)
+    end
+})
+
+Adds a button.
+
+Example:
+section:AddButton({
+    text = "Click Me",
+    callback = function()
+        print("Button clicked!")
+    end
+})
+
+Adds a slider.
+
+Example:
+section:AddSlider({
+    text = "Volume",
+    min = 0,
+    max = 100,
+    value = 50,
+    callback = function(value)
+        print("Slider value:", value)
+    end
+})
+
+Adds a color picker.
+
+Example:
+section:AddColor({
+    text = "Select Color",
+    color = Color3.fromRGB(255, 0, 0),
+    callback = function(color)
+        print("Selected color:", color)
+    end
+})
+
+Adds a dropdown list.
+
+Example:
+section:AddList({
+    text = "Choose Option",
+    values = {"Option 1", "Option 2", "Option 3"},
+    callback = function(selected)
+        print("Selected:", selected)
+    end
+})
+
+Adds a text input field.
+
+Example:
+section:AddBox({
+    text = "Enter your name",
+    value = "",
+    callback = function(text)
+        print("Entered text:", text)
+    end
+})
+
+Adds a keybind setting.
+
+Example:
+section:AddBind({
+    text = "Shortcut",
+    key = Enum.KeyCode.F,
+    callback = function()
+        print("Key pressed!")
+    end
+})
